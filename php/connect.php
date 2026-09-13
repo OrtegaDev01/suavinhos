@@ -1,12 +1,12 @@
 <?php
-    $host = "localhost";
-    $db = "suavinhos";
-    $user = "root";
-    $senha = "";
+$host = "localhost";
+$db = "suavinhos";
+$user = "justiniano";
+$senha = "niggabomber";
 
-    try{
-        global $conexao;
-        $conexao = new PDO("mysql:host=$host; dbname=$db;", $user, $senha);
-    } catch (Exception $erro){
-        echo $erro;
-    }
+try {
+  $conexao;
+  $conexao = new PDO("mysql:host=$host; dbname=$db;", $user, $senha);
+} catch (Exception $erro) {
+  echo $erro;
+}
