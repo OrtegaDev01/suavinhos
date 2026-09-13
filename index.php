@@ -10,7 +10,7 @@
 <body>
 
   <header>
-    <h1> Suavinhos </h1 </header>
+    <h1> Suavinhos </h1>
     <main>
       <form method="POST">
         <input type="search" placeholder="pesquisar" name="q">
@@ -47,6 +47,7 @@
     </footer>
 
     <script src="script.js"></script>
+  </header>
 </body>
 
 </html>

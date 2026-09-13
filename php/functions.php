@@ -1,19 +1,21 @@
 <?php
 
-function  RankVendas(){
-$comando = $conexao -> query("select nome, vendas from produtos  order by vendas  DESC");
-$stmt -> execute();
-$itens = $stmt -> fetchALL(PDO::FETCH_ASSOC);
-foreach($itens as $rank => $item){
-  echo(" <p class='rank-item'>" .  ($rank + 1) . " {$item['nome']} </p> <br>");
+function  RankVendas($conexao)
+{
+  $comando = $conexao->query("select nome, vendas from produtos  order by vendas  DESC");
+  $itens = $comando->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($itens as $rank => $item) {
+    echo (" <p class='rank-item'>" .  ($rank + 1) . " {$item['nome']} </p> <br>");
+  }
 }
 
 
-function FiltrarPreco($q,$x,$y){
-try{
-  $comando = $conexao-> query("select * from produtos where nome like :busca and preco between :min and :max");
-  $stmt = $comando -> prepare($comando);
-  $stmt -> execute([':bsuca' => "%%q%", ":min" => $x, ":max" => $y ]);
+function FiltrarPreco($conexao, $q, $x, $y)
+{
+  try {
+    $comando = $conexao->query("select * from produtos where nome like :busca and preco between :min and :max");
+    $stmt = $comando->prepare($comando);
+    $stmt->execute([':busca' => "%$q%", ":min" => $x, ":max" => $y]);
     $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($produtos as $produto) {
     }
@@ -23,7 +25,7 @@ try{
   }
 }
 
-function buscar($q)
+function buscar($conexao, $q)
 {
   try {
     $comando = $conexao->query("select * from produtos where nome like :busca");
