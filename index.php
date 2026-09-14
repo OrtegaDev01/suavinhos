@@ -42,8 +42,23 @@
       </div>
     
 
-        <div id="filtro">
-        </div>
+      <div id="filtro">
+        <h3>Filtrar</h3>
+        <form method="POST" id="filtro-preco">
+          <label for="preco">Preço:</label>
+          <input type="number" name="preco-min" id='preco-min' placeholder="Mínimo">
+          <input type="number" name="preco-max" id='preco-max' placeholder="Máximo">
+          <input type="button" value="Filtrar" onclick="filtrar('minmax')">
+        </form>
+        <form method="POST" id="filtro-menor-maior">
+          <label for="preco">Do menor para o maior:</label>
+          <input type="button" value="Filtrar" onclick="filtrar('menor-maior')">
+        </form>
+        <form method="POST" id="filtro-maior-menor">
+          <label for="preco">Do maior para o menor:</label>
+          <input type="button" value="Filtrar" onclick="filtrar('maior-menor')">
+        </form>
+      </div>
 
 
       <div id="div-itens">
@@ -86,6 +101,50 @@
           },
           body: JSON.stringify({
             q: document.querySelector("input[name='q']").value
+          })
+        }).then(response => response.json())
+        .then(data => {
+          const divItens = document.getElementById("pesquisa-div");
+          divItens.innerHTML = "";
+          data.forEach(produto => {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");
+            itemDiv.onclick = () => irPraPagina(produto.nome);
+            if(produto.nome == 'vinho'){
+              imagem = 'img/vinho1.jpg';
+            } else {
+              imagem = 'img/vinho.jpg';
+            }
+            itemDiv.innerHTML = `
+              <h3>${produto.nome}</h3>
+              <img src=${imagem} height='150px' width='120px' alt='imagem de vinho'>
+              <p>Estoque: ${produto.estoque}</p>
+              <p>Preço: R$${produto.preco}</p>
+              <p>Vendas: ${produto.vendas}</p>
+            `;
+            divItens.appendChild(itemDiv);
+          });
+        });
+      }
+
+      async function filtrar(tipo){
+        if(tipo == 'minmax'){
+          valor1 = document.getElementById('preco-min').value;
+          valor2 = document.getElementById('preco-max').value;
+        } else {
+          valor1 = null;
+          valor2 = null;
+        }
+        
+        fetch("php/filtragem.php", {
+          method: "POST",
+          headers:{
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            tipo: tipo,
+            valor1: valor1,
+            valor2: valor2
           })
         }).then(response => response.json())
         .then(data => {
