@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/estilos.css">
+  <?php 
+    require_once "php/connect.php";
+    require_once "php/functions.php";
+  ?>
   <title>Suavinhos</title>
 </head>
 
@@ -16,32 +20,13 @@
     <main class="principal">
 
       <div class="pesquisa">
-      <form method="POST" id="barra">
-        <img src="img/lupa.png" height="30px" width="30px" alt="imagem de lupa">
-        <input type="search" placeholder="pesquisar" name="q">
-        <input type="button" value="Buscar" onclick="pesquisar()">
-      </form>
+        <form method="POST" id="barra">
+          <img src="img/lupa.png" height="30px" width="30px" alt="imagem de lupa">
+          <input type="search" placeholder="pesquisar" name="q">
+          <input type="button" value="Buscar" onclick="pesquisar()">
+        </form>
       </div>
-      <div id="pesquisa-div">
-        <?php
-        require "php/connect.php";
-        require "php/functions.php";
-          $produtos = buscar($conexao, 'vinho');
-          foreach ($produtos as $produto) {
-            $nome = $produto["nome"];
-            echo "<div class='item' onclick='irPraPagina(`$nome`)'>";
-            echo "<h3>" . $produto["nome"] . "</h3>";
-            echo "<p>Estoque: " . $produto["estoque"] . "</p>";
-            if($produto["nome"] == "vinho"){
-              echo "<img src='img/vinho1.jpg' height='80px' width='80px' alt='imagem de vinho'>";
-            }
-            echo "<p>Preço: R$" . $produto["preco"] . "</p>";
-            echo "<p>Vendas: " . $produto["vendas"] . "</p>";
-            echo "</div>";
-          }
-        ?>
-      </div>
-<div class="rank_produtos">
+    <div class="rank_produtos">
       <div id="filtro">
         <div id="rank">
           <h3>Vinhos mais vendidos</h3>
@@ -56,28 +41,30 @@
         </div>
 
 
-
       </div>
+    </div>
 
       <div id="div-itens">
-      <h2>Produtos</h2>
-        <?php
-          $produtos = receberProdutos($conexao);
-          foreach ($produtos as $produto) {
-            $nome = $produto["nome"];
-            echo "<div class='item' onclick='irPraPagina(`$nome`)'>"; echo "teste";
-            echo "<h3>" . $produto["nome"] . "</h3>";
-            echo "<p>Estoque: " . $produto["estoque"] . "</p>";
-            if($produto["nome"] == "vinho"){
-              echo "<img src='img/vinho1.jpg' height='80px' width='80px' alt='imagem de vinho'>";
+        <h2>Produtos</h2>
+          <?php
+            $produtos = receberProdutos($conexao);
+            echo "<div id='pesquisa-div'>";
+            foreach ($produtos as $produto) {
+              $nome = $produto["nome"];
+              echo "<div class='item' onclick='irPraPagina(`$nome`)'>"; echo "teste";
+              echo "<h3>" . $produto["nome"] . "</h3>";
+              echo "<p>Estoque: " . $produto["estoque"] . "</p>";
+              if($produto["nome"] == "vinho"){
+                echo "<img src='img/vinho1.jpg' height='80px' width='80px' alt='imagem de vinho'>";
+              }
+              echo "<p>Preço: R$" . $produto["preco"] . "</p>";
+              echo "<p>Vendas: " . $produto["vendas"] . "</p>";
+              echo "</div>";
             }
-            echo "<p>Preço: R$" . $produto["preco"] . "</p>";
-            echo "<p>Vendas: " . $produto["vendas"] . "</p>";
             echo "</div>";
-          }
-        ?>
+          ?>
+        
       </div>
-        </div>
     </main>
 
     <footer class="footer">
