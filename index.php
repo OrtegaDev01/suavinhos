@@ -4,15 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilos.css">
   <title>Suavinhos</title>
 </head>
 
-<body>
+<body class="corpo">
 
-  <header>
-    <h1> Suavinhos </h1 </header>
+  <header class="header">
+    <h1> Suavinhos </h1> 
+  </header>
     <main>
-      <form method="POST">
+
+      <div class="pesquisa">
+      <form method="POST" id="barra">
+        <img src="img/lupa.png" height="30px" width="30px" alt="imagem de lupa">
         <input type="search" placeholder="pesquisar" name="q">
         <input type="button" value="Buscar" onclick="<?php
                                                       if ($_SERVER["REQUEST_METHOD"] === 'POST') {
@@ -24,6 +29,8 @@
 
                                                       ?>">
       </form>
+      <div>
+
       <div id="filtro">
         <div id="rank">
           <?php
@@ -43,7 +50,8 @@
       <div id="div-itens"></div>
     </main>
 
-    <footer>
+    <footer class="footer">
+      <h4>Marlon, Felipe Ortega, Miguel</h4>
     </footer>
 
     <script src="script.js"></script>
