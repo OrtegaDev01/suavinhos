@@ -2,7 +2,7 @@
 $host = "localhost";
 $db = "suavinhos";
 $user = "root";
-$senha = "";
+$senha = "senha";
 
 try {
   $conexao;
