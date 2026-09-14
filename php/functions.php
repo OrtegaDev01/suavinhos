@@ -8,19 +8,6 @@ foreach($itens as $rank => $item){
 }
 };
 
-function FiltrarPreco($q,$x,$y){
-try{
-  $comando = $conexao-> query("select * from produtos where nome like :busca and preco between :min and :max");
-  $stmt = $comando -> prepare($comando);
-  $stmt -> execute([':bsuca' => "%%q%", ":min" => $x, ":max" => $y ]);
-    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($produtos as $produto) {
-    }
-    header("Refresh: 0");
-  } catch (Exception $erro) {
-    echo $erro;
-  }
-}
 
 function buscar($conexao, $q)
 {
