@@ -47,7 +47,23 @@
 
 
       </div>
-      <div id="div-itens"></div>
+      <div id="div-itens">
+        <h2>Produtos</h2>
+        <?php
+          $produtos = receberProdutos($conexao);
+          foreach ($produtos as $produto) {
+            echo "<div class='item'>";
+            echo "<h3>" . $produto["nome"] . "</h3>";
+            echo "<p>Estoque: " . $produto["estoque"] . "</p>";
+            if($produto["nome"] == "vinho"){
+              echo "<img src='img/vinho1.jpg' alt='imagem de vinho'>";
+            }
+            echo "<p>Preço: R$" . $produto["preco"] . "</p>";
+            echo "<p>Vendas: " . $produto["vendas"] . "</p>";
+            echo "</div>";
+          }
+        ?>
+      </div>
     </main>
 
     <footer class="">
