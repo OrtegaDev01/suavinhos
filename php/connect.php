@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $db = "suavinhos";
-$user = "justiniano";
-$senha = "niggabomber";
+$user = "root";
+$senha = "senha";
 
 try {
   $conexao;

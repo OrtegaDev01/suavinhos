@@ -137,8 +137,8 @@ function receberProdutoEspecifico($conexao, $nome)
 {
   try {
     $comando = $conexao->query("select * from produtos where nome = '$nome'");
-    $produto = $comando->fetch(PDO::FETCH_ASSOC);
-    return $produto ? new Produto($produto) : null;
+    $produtos = $comando->fetchAll(PDO::FETCH_ASSOC);
+    return $produtos[0];
   } catch (Exception $erro) {
     echo $erro;
   }
