@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["logout"])) {
+  $_SESSION = [];
+  session_unset();
+  session_destroy();
+  header("Location: login.php");
+  exit;
+}
+
+if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
+  header("Location: login.php");
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,6 +34,11 @@
   <header class="header">
     <h1> Suavinhos </h1> 
   </header>
+
+  <form method="POST" action="index.php" style="margin: 10px 0 0 20px;">
+    <button type="submit" name="logout" value="1">Logout</button>
+  </form>
+
     <main class="principal">
 
       <div class="pesquisa">
@@ -69,15 +91,12 @@
             $produtos = receberProdutos($conexao);
             echo "<div id='pesquisa-div'>";
             foreach ($produtos as $produto) {
-              $nome = $produto["nome"];
-              echo "<div class='item' onclick='irPraPagina(`$nome`)'>";
-              echo "<h3>" . $produto["nome"] . "</h3>";
-              echo "<p>Estoque: " . $produto["estoque"] . "</p>";
-              if($produto["nome"] == "vinho"){
-                echo "<img src='img/vinho1.jpg' height='80px' width='80px' alt='imagem de vinho'>";
-              }
-              echo "<p>Preço: R$" . $produto["preco"] . "</p>";
-              echo "<p>Vendas: " . $produto["vendas"] . "</p>";
+              echo "<div class='item' onclick='irPraPagina(" . htmlspecialchars(json_encode($produto->getNome()), ENT_QUOTES, 'UTF-8') . ")'>";
+              echo "<h3>" . htmlspecialchars($produto->getNome(), ENT_QUOTES, 'UTF-8') . "</h3>";
+              echo "<img src='" . htmlspecialchars($produto->getImagem(), ENT_QUOTES, 'UTF-8') . "' height='80px' width='80px' alt='imagem de vinho'>";
+              echo "<p>Estoque: " . $produto->getEstoque() . "</p>";
+              echo "<p>Preço: R$" . $produto->getPreco() . "</p>";
+              echo "<p>Vendas: " . $produto->getVendas() . "</p>";
               echo "</div>";
             }
             echo "</div>";

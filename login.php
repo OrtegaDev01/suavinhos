@@ -1,5 +1,19 @@
 <?php
 session_start();
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["logout"])) {
+    $_SESSION = [];
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit;
+}
+
+if (isset($_SESSION["login"]) && $_SESSION["login"] === true) {
+    header("Location: index.php");
+    exit;
+}
+
 require "php/connect.php";
 
 $erro = "";
@@ -55,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label for="senha">Senha:</label>
         <input type="password" name="senha" id="senha" required><br><br>
         
-        <input type="submit" value="Entrar">git con
+        <input type="submit" value="Entrar">
     </form>
     <a href="registro.php">Ainda não tem uma conta? Registre-se</a>
 </body>
