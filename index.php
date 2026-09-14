@@ -36,13 +36,15 @@
           ?>
 
         </div>
-        <div id="filtro-popup">
-          <input type="button" value="Filtrar" id="popup">
-        </div>
+
 
 
       </div>
     
+
+        <div id="filtro">
+        </div>
+
 
       <div id="div-itens">
         <h2>Produtos</h2>
