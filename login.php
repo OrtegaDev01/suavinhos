@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label for="senha">Senha:</label>
         <input type="password" name="senha" id="senha" required><br><br>
         
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Entrar">git con
     </form>
     <a href="registro.php">Ainda não tem uma conta? Registre-se</a>
 </body>
