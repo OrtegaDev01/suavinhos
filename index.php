@@ -101,7 +101,18 @@
         .then(data => {
           const divItens = document.getElementById("pesquisa-div");
           divItens.innerHTML = "";
-          window.alert(data);
+          data.forEach(produto => {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");
+            itemDiv.onclick = () => irPraPagina(produto.nome);
+            itemDiv.innerHTML = `
+              <h3>${produto.nome}</h3>
+              <p>Estoque: ${produto.estoque}</p>
+              <p>Preço: R$${produto.preco}</p>
+              <p>Vendas: ${produto.vendas}</p>
+            `;
+            divItens.appendChild(itemDiv);
+          });
         });
       }
     </script>
