@@ -54,7 +54,8 @@
         <?php
           $produtos = receberProdutos($conexao);
           foreach ($produtos as $produto) {
-            echo "<div class='item'>";
+            $nome = $produto["nome"];
+            echo "<div class='item' onclick='irPraPagina(`$nome`)'>"; echo "teste";
             echo "<h3>" . $produto["nome"] . "</h3>";
             echo "<p>Estoque: " . $produto["estoque"] . "</p>";
             if($produto["nome"] == "vinho"){
@@ -73,6 +74,11 @@
     <b>Marlon, Felipe Ortega, Miguel</b>
     </footer>
 
+    <script>
+      function irPraPagina(nome) {
+        window.location.href = "produto.php?nome=" + nome;
+      }
+    </script>
     <script src="script.js"></script>
 </body>
 
