@@ -19,24 +19,34 @@
       <form method="POST" id="barra">
         <img src="img/lupa.png" height="30px" width="30px" alt="imagem de lupa">
         <input type="search" placeholder="pesquisar" name="q">
-        <input type="button" value="Buscar" onclick="<?php
-                                                      if ($_SERVER["REQUEST_METHOD"] === 'POST') {
-                                                        require_once("./php/connect.php");
-                                                        require_once("./php/functions.php");
-                                                        $q = $_POST["q"];
-                                                        buscar($conexao, $q);
-                                                      }
-
-                                                      ?>">
+        <input type="button" value="Buscar" onclick="pesquisar()">
       </form>
-                                                    </div>
+      </div>
+      <div id="pesquisa-div">
+        <?php
+        require "php/connect.php";
+        require "php/functions.php";
+          $produtos = buscar($conexao, 'vinho');
+          foreach ($produtos as $produto) {
+            $nome = $produto["nome"];
+            echo "<div class='item' onclick='irPraPagina(`$nome`)'>";
+            echo "<h3>" . $produto["nome"] . "</h3>";
+            echo "<p>Estoque: " . $produto["estoque"] . "</p>";
+            if($produto["nome"] == "vinho"){
+              echo "<img src='img/vinho1.jpg' height='80px' width='80px' alt='imagem de vinho'>";
+            }
+            echo "<p>Preço: R$" . $produto["preco"] . "</p>";
+            echo "<p>Vendas: " . $produto["vendas"] . "</p>";
+            echo "</div>";
+          }
+        ?>
+      </div>
 <div class="rank_produtos">
       <div id="filtro">
         <div id="rank">
           <h3>Vinhos mais vendidos</h3>
           <?php
-          require_once("./php/connect.php");
-          require_once("./php/functions.php");
+          
           RankVendas($conexao);
           ?>
 
@@ -77,6 +87,22 @@
     <script>
       function irPraPagina(nome) {
         window.location.href = "produto.php?nome=" + nome;
+      }
+      async function pesquisar(){
+        fetch("php/pesquisar.php", {
+          method: "POST",
+          headers:{
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            q: document.querySelector("input[name='q']").value
+          })
+        }).then(response => response.json())
+        .then(data => {
+          const divItens = document.getElementById("pesquisa-div");
+          divItens.innerHTML = "";
+          window.alert(data);
+        });
       }
     </script>
     <script src="script.js"></script>

@@ -22,16 +22,13 @@ try{
   }
 }
 
-function buscar($q)
+function buscar($conexao, $q)
 {
   try {
-    $comando = $conexao->query("select * from produtos where nome like :busca");
-    $stmt = $comando->prepare($comando);
-    $stmt->execute([':busca' => "%$q%"]);
-    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($produtos as $produto) {
-    }
-    header("Refresh: 0");
+    $comando = $conexao->query("select * from produtos where nome like '$q%'");
+    $produtos = $comando->fetchAll(PDO::FETCH_ASSOC);
+    return $produtos;
+    //header("Refresh: 0");
   } catch (Exception $erro) {
     echo $erro;
   }
