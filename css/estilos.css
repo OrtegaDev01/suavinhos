@@ -40,7 +40,7 @@
     border-radius: 3px;
 }
 
-.rank_produtos{
+.rank_e_produtos{
 display: flex;
 flex-direction: row;
 gap:20px;
@@ -56,6 +56,7 @@ background-color:#242527;
 padding: 10px;
 width:20%;
 color:white;
+height: 30vh;
 
 }
 

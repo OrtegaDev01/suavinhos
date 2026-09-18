@@ -22,11 +22,13 @@
       <div class="pesquisa">
         <form method="POST" id="barra">
           <img src="img/lupa.png" height="30px" width="30px" alt="imagem de lupa">
-          <input type="search" placeholder="pesquisar" name="q">
+          <input type="search" placeholder="Pesquisar" name="q">
           <input type="button" value="Buscar" onclick="pesquisar()">
         </form>
       </div>
-    <div class="rank_produtos">
+    <div class="rank_e_produtos">
+
+
       <div id="filtro">
         <div id="rank">
           <h3>Vinhos mais vendidos</h3>
@@ -82,6 +84,7 @@
           ?>
         
       </div>
+         
           </div>
     </main>
 
