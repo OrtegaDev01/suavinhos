@@ -30,9 +30,10 @@
                                                       ?>">
       </form>
                                                     </div>
-
+<div class="rank_produtos">
       <div id="filtro">
         <div id="rank">
+          <h3>Vinhos mais vendidos</h3>
           <?php
           require_once("./php/connect.php");
           require_once("./php/functions.php");
@@ -65,6 +66,7 @@
           }
         ?>
       </div>
+        </div>
     </main>
 
     <footer class="footer">

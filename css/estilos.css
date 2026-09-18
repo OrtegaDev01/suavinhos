@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
+    border-radius: 3px;
     height: 10vh;
 }
 
@@ -20,7 +20,6 @@
     display: flex;
     flex-direction: column;
     height: 70vh;
-    flex-wrap:wrap;
     gap: 10px;
 }
 
@@ -41,11 +40,62 @@
     border-radius: 3px;
 }
 
-#div-itens{
-    background-color:antiquewhite;
+.rank_produtos{
+display: flex;
+flex-direction: row;
+gap:20px;
+width: 100%;
+}
+
+#filtro{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: space-between;
+background-color:#242527;
+padding: 10px;
+width:20%;
+color:white;
+
+}
+
+#filtro-popup{
     display: flex;
-    justify-content: flex-start;
-    padding: 10px;
+    width: 100%;
+    justify-content: end;
+}
+
+#div-itens{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+background-color:bisque;
+padding: 10px;
+width:50%;
+}
+
+.item{
+    background-color:#242527;
+    padding: 5px;
+    color:  #F6FCFD;
+    width: 30%;
+    border-radius: 3px;
+}
+
+h2{
+    background-color: #242527;
+    color: #F6FCFD;
+    border-radius: 1px;
+    width: 100%;
+}
+
+h3{
+    background-color:darkcyan;
+    color: #F6FCFD;
+    border-radius: 1px;
+    width: 80%;
+    padding: 3px;
+    margin: 0;
 }
 
 .footer{ 
@@ -55,5 +105,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    height: 5vh;
+    height: 3vh;
+    width: 100%;
 }
