@@ -54,23 +54,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="css/estilos.css">
+
 </head>
-<body>
-    <h2>Login</h2>
+<body id="login">
+    <h2 id="titulo">Login</h2>
 
     <?php if ($erro !== ""): ?>
         <p style="color: red;"><?php echo $erro; ?></p>
     <?php endif; ?>
-
-    <form method="POST">
+<div>
+    <form method="POST" id="cadastro_login">
+    <div>
         <label for="usuario">Usuário:</label>
         <input type="text" name="usuario" id="usuario" required><br><br>
 
         <label for="senha">Senha:</label>
         <input type="password" name="senha" id="senha" required><br><br>
-        
-        <input type="submit" value="Entrar">
+    </div>
+        <div id="enviar"><input type="submit" value="Entrar"></div>
+       
     </form>
-    <a href="registro.php">Ainda não tem uma conta? Registre-se</a>
+    <div> <a href="registro.php">Ainda não tem uma conta? Registre-se</a> </div>
+</div>
 </body>
 </html>
