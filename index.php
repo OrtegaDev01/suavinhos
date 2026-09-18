@@ -47,8 +47,9 @@
 
 
       </div>
+
       <div id="div-itens">
-        <h2>Produtos</h2>
+      <h2>Produtos</h2>
         <?php
           $produtos = receberProdutos($conexao);
           foreach ($produtos as $produto) {

@@ -42,7 +42,10 @@
 }
 
 #div-itens{
-    background-color: blue;
+    background-color:antiquewhite;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
 }
 
 .footer{ 
