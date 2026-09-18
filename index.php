@@ -42,7 +42,7 @@
 
 
       </div>
-    </div>
+    
 
       <div id="div-itens">
         <h2>Produtos</h2>
@@ -65,6 +65,7 @@
           ?>
         
       </div>
+          </div>
     </main>
 
     <footer class="footer">
