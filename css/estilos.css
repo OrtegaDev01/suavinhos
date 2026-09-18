@@ -1,7 +1,9 @@
 .corpo{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    height: 100vh;
+    justify-content: space-between;
+    gap: 5px;
 }
 
 .header{
@@ -14,10 +16,19 @@
     height: 10vh;
 }
 
+.principal{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 80vh;
+    flex-wrap:wrap;
+}
+
 .pesquisa{
     display: flex;
     justify-content: center;
     height: 8vh;
+    width: 100%;
 }
 
 #barra{
@@ -35,6 +46,7 @@
     color: #F6FCFD;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 5px;
-    height: 13vh;
+    height: 5vh;
 }

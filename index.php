@@ -13,7 +13,7 @@
   <header class="header">
     <h1> Suavinhos </h1> 
   </header>
-    <main>
+    <main class="principal">
 
       <div class="pesquisa">
       <form method="POST" id="barra">
@@ -66,8 +66,8 @@
       </div>
     </main>
 
-    <footer class="">
-    
+    <footer class="footer">
+    <b>Marlon, Felipe Ortega, Miguel</b>
     </footer>
 
     <script src="script.js"></script>
