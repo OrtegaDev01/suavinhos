@@ -1,13 +1,12 @@
 <?php
 
-function  RankVendas(){
+function  RankVendas($conexao){
 $comando = $conexao -> query("select nome, vendas from produtos  order by vendas  DESC");
-$stmt -> execute();
-$itens = $stmt -> fetchALL(PDO::FETCH_ASSOC);
+$itens = $comando -> fetchAll(PDO::FETCH_ASSOC);
 foreach($itens as $rank => $item){
   echo(" <p class='rank-item'>" .  ($rank + 1) . " {$item['nome']} </p> <br>");
 }
-
+};
 
 function FiltrarPreco($q,$x,$y){
 try{

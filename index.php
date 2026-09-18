@@ -50,8 +50,8 @@
       <div id="div-itens"></div>
     </main>
 
-    <footer class="footer">
-      <h4>Marlon, Felipe Ortega, Miguel</h4>
+    <footer class="">
+    
     </footer>
 
     <script src="script.js"></script>

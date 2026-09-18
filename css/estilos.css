@@ -1,7 +1,7 @@
 .corpo{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .header{
@@ -9,8 +9,9 @@
     color: #F6FCFD;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 5px;
-    height: 13vh;
+    height: 10vh;
 }
 
 .pesquisa{
@@ -25,6 +26,8 @@
     background-color: bisque;
     padding: 3px;
     height: 60%;
+    gap: 5px;
+    border-radius: 3px;
 }
 
 .footer{ 
