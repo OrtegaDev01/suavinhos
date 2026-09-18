@@ -53,7 +53,7 @@
             echo "<div id='pesquisa-div'>";
             foreach ($produtos as $produto) {
               $nome = $produto["nome"];
-              echo "<div class='item' onclick='irPraPagina(`$nome`)'>"; echo "teste";
+              echo "<div class='item' onclick='irPraPagina(`$nome`)'>";
               echo "<h3>" . $produto["nome"] . "</h3>";
               echo "<p>Estoque: " . $produto["estoque"] . "</p>";
               if($produto["nome"] == "vinho"){
