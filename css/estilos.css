@@ -18,10 +18,10 @@
 
 .principal{
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 80vh;
+    flex-direction: column;
+    height: 70vh;
     flex-wrap:wrap;
+    gap: 10px;
 }
 
 .pesquisa{
@@ -37,8 +37,12 @@
     background-color: bisque;
     padding: 3px;
     height: 60%;
-    gap: 5px;
+    gap: 8px;
     border-radius: 3px;
+}
+
+#div-itens{
+    background-color: blue;
 }
 
 .footer{ 

@@ -29,7 +29,7 @@
 
                                                       ?>">
       </form>
-      <div>
+                                                    </div>
 
       <div id="filtro">
         <div id="rank">
@@ -56,7 +56,7 @@
             echo "<h3>" . $produto["nome"] . "</h3>";
             echo "<p>Estoque: " . $produto["estoque"] . "</p>";
             if($produto["nome"] == "vinho"){
-              echo "<img src='img/vinho1.jpg' alt='imagem de vinho'>";
+              echo "<img src='img/vinho1.jpg' height='80px' width='80px' alt='imagem de vinho'>";
             }
             echo "<p>Preço: R$" . $produto["preco"] . "</p>";
             echo "<p>Vendas: " . $produto["vendas"] . "</p>";
